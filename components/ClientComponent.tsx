@@ -17,7 +17,7 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   }
 
   return (
-    <div className={`h-screen max-h-screen w-screen bg-black`}>
+    <div className={`h-screen max-h-screen w-screen`}>
       {isLoading && isHome ? (
         <InitLoading finishLoading={finishLoading} />
       ) : (

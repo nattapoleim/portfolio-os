@@ -1,4 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+@layer base {
+  * {
+    @apply border-primary-green;
+  }
+
+  body {
+    @apply bg-primary-navy text-primary-green;
+  }
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none; /* สำหรับ Safari */
+  -moz-user-select: none; /* สำหรับ Firefox */
+  -ms-user-select: none; /* สำหรับ Internet Explorer/Edge */
+}

@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-const Clock = () => {
+const Clock: FC<{ className?: string }> = ({ className }) => {
   const [time, setTime] = useState<string>('')
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Clock = () => {
 
     return () => clearInterval(timerId)
   }, [])
-  return <article className="text-lg font-medium">{time}</article>
+  return <article className={className}>{time}</article>
 }
 
 export default Clock

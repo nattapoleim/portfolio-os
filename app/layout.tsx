@@ -1,10 +1,12 @@
 import ClientComponent from '@/components/ClientComponent'
-import Taskbar from '@/components/taskbar/Taskbar'
 import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
+import { IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const ibm = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+})
 
 export const metadata: Metadata = {
   title: 'Portfolio OS',
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetBrainsMono.className}>
+      <body className={ibm.className}>
         <ClientComponent>{children}</ClientComponent>
       </body>
     </html>

@@ -1,6 +1,7 @@
 'use client'
 
 import App from '@/components/application/App'
+import Taskbar from '@/components/taskbar/Taskbar'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 

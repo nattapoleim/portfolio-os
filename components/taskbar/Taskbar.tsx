@@ -13,7 +13,7 @@ const Taskbar = () => {
   const [taskOpen, setTaskOpen] = useState(false)
 
   return (
-    <div className="h-14 absolute bottom-0 right-0 left-0 flex items-center justify-between bg-blue-400 p-2">
+    <div className="h-14 absolute rounded-t-md bottom-0 right-0 left-0 flex items-center justify-between bg-blue-400 p-2">
       <div className="h-full">
         <div
           onClick={() => setTaskOpen(!taskOpen)}

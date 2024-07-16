@@ -20,7 +20,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={jetBrainsMono.className}>
         <ClientComponent>{children}</ClientComponent>
-        <Taskbar />
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import About from '@/components/about/About'
 import App from '@/components/application/App'
 import AppWindow from '@/components/appWindow/AppWindow'
 import Clock from '@/components/clock/Clock'
@@ -8,8 +9,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 const applications: Application[] = [
-  { title: 'About' },
-  { title: 'Resume' },
+  { title: 'About', component: <About /> },
   { title: 'Projects' },
   { title: 'Contact' },
 ]
@@ -68,7 +68,9 @@ export default function Home() {
             app={app}
             onClose={() => handleCloseApp(app)}
             onFocus={() => handleFocus(app)}
-          />
+          >
+            {app.component ? app.component : 'Content'}
+          </AppWindow>
         ))}
       </AnimatePresence>
 

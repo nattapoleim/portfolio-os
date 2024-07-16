@@ -10,13 +10,14 @@ interface AppWindowProps {
   app: OpenApplication
   onClose: () => void
   onFocus: () => void
+  children: React.ReactNode
 }
 
 const MIN_WINDOW_SIZE = { width: 300, height: 200 }
 
-const AppWindow: FC<AppWindowProps> = ({ app, onClose, onFocus }) => {
+const AppWindow: FC<AppWindowProps> = ({ app, onClose, onFocus, children }) => {
   const dragControls = useDragControls()
-  const [windowSize, setWindowSize] = useState({ width: 700, height: 500 })
+  const [windowSize, setWindowSize] = useState({ width: 700, height: 650 })
   const [isResizing, setIsResizing] = useState(false)
   const windowRef = useRef<HTMLDivElement>(null)
   const resizeRef = useRef({ width: 700, height: 500 })
@@ -97,7 +98,7 @@ const AppWindow: FC<AppWindowProps> = ({ app, onClose, onFocus }) => {
         drag={false}
         className="text-white p-2 bg-primary-lightnavy h-full overflow-scroll z-20"
       >
-        {app.title} Content
+        {children}
       </motion.div>
       <div
         className="absolute bottom-0 right-0 w-4 h-4 cursor-se-resize"

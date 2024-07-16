@@ -1,5 +1,6 @@
 export type Application = {
   title: string
+  component?: any
 }
 
 export type OpenApplication = Application & {

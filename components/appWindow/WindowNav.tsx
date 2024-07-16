@@ -19,7 +19,7 @@ const WindowNav: FC<WindowNavProps> = ({ title, dragControls, onClose }) => {
       <div className="flex items-center gap-2">
         <div
           onClick={onClose}
-          className="w-5 h-5 border flex hover:bg-primary-green hover:text-primary-navy duration-300 items-center justify-center cursor-pointer"
+          className="w-5 h-5 border flex hover:bg-primary-green hover:text-primary-navy duration-300 items-center justify-center rounded-sm cursor-pointer"
         >
           X
         </div>

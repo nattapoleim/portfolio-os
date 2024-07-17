@@ -4,14 +4,16 @@ import About from '@/components/about/About'
 import App from '@/components/application/App'
 import AppWindow from '@/components/appWindow/AppWindow'
 import Clock from '@/components/clock/Clock'
+import Contact from '@/components/contact/Contact'
 import { Application, OpenApplication } from '@/types/application'
 import { AnimatePresence } from 'framer-motion'
+import { Contact2 } from 'lucide-react'
 import { useState } from 'react'
 
 const applications: Application[] = [
   { title: 'About', component: <About /> },
   { title: 'Projects' },
-  { title: 'Contact' },
+  { title: `Contact`, component: <Contact /> },
 ]
 
 const BASE_POSITION = { top: 50, left: 150 }

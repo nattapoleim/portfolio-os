@@ -67,15 +67,16 @@ const AppWindow: FC<AppWindowProps> = ({ app, onClose, onFocus, children }) => {
   return (
     <motion.div
       ref={windowRef}
-      initial={{ opacity: 0, display: 'none' }}
+      initial={{ opacity: 0, display: 'none', y: 500 }}
       animate={{
         opacity: 1,
         display: 'block',
         top: app.position.top,
         left: app.position.left,
         zIndex: app.zIndex,
+        y: 0,
       }}
-      exit={{ opacity: 0, display: 'none' }}
+      exit={{ opacity: 0, display: 'none', y: 500 }}
       transition={{ duration: 0.5, type: 'spring' }}
       dragMomentum={false}
       drag

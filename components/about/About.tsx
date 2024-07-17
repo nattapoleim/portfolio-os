@@ -68,8 +68,6 @@ const About = () => {
         animate="animate"
         transition={{
           delay: 0.7,
-          type: 'spring',
-          ease: 'easeInOut',
         }}
         className="text-second"
       >

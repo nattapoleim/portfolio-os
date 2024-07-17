@@ -29,8 +29,8 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div
       style={{
-        height: `calc(100vh - 2.5rem)`,
-        maxHeight: `calc(100vh - 2.5rem)`,
+        height: `calc(window.innerHeight - 2.5rem)`,
+        maxHeight: `calc(window.innerHeight - 2.5rem)`,
       }}
       className="w-screen"
     >

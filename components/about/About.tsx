@@ -17,7 +17,7 @@ const variants: Variants = {
 
 const About = () => {
   return (
-    <section className="flex items-center justify-center text-center flex-col gap-5 mt-10">
+    <section className="flex text-white container items-center justify-center text-center flex-col gap-5 mt-10">
       <motion.div
         variants={variants}
         initial="initial"
@@ -57,7 +57,7 @@ const About = () => {
         transition={{
           delay: 0.6,
         }}
-        className="text-4xl leading-tight"
+        className="text-2xl lg:text-4xl leading-tight"
       >
         Website developer.
       </motion.div>

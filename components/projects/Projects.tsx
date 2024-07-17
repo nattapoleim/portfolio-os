@@ -62,11 +62,11 @@ const Projects = () => {
         initial="initial"
         animate="animate"
         transition={{ delay: 0.3 }}
-        className="text-4xl font-semibold uppercase text-primary-green"
+        className="text-4xl font-semibold uppercase text-primary-green mt-4 lg:mt-0"
       >
         Projects
       </motion.h2>
-      <div className="grid grid-cols-2 gap-4 mb-20">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-4 mb-20">
         {projectList.map((project, index) => (
           <motion.article
             variants={variants}

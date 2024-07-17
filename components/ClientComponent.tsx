@@ -12,6 +12,7 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   const isHome = pathname === '/'
   const [isLoading, setIsLoading] = useState(isHome)
   const [isMobile, setIsMobile] = useState(false)
+  const currentH = window.innerHeight - 40
 
   const checkScreenSize = () => {
     setIsMobile(window.innerWidth <= 1024)
@@ -29,8 +30,8 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div
       style={{
-        height: `calc(window.innerHeight - 2.5rem)`,
-        maxHeight: `calc(window.innerHeight - 2.5rem)`,
+        height: `${currentH}px`,
+        maxHeight: `${currentH}px`,
       }}
       className="w-screen"
     >

@@ -2,7 +2,7 @@
 
 import { Application, OpenApplication } from '@/types/application'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // components
 import About from '@/components/about/About'
@@ -30,13 +30,26 @@ export default function Home() {
   const [maxZIndex, setMaxZIndex] = useState(100)
   const [isMobile, setIsMobile] = useState(false)
   const [mobileAppOpen, setMobileAppOpen] = useState(false)
+  const prevWidthRef = useRef(typeof window !== 'undefined' ? window.innerWidth : 0)
 
   useEffect(() => {
     const checkisMobile = () => {
-      setIsMobile(window.innerWidth <= 1024)
+      const currentWidth = window.innerWidth
+      const prevWidth = prevWidthRef.current
+      const newIsMobile = currentWidth <= 1024
+      setIsMobile(newIsMobile)
+
+      if (
+        (prevWidth <= 1024 && currentWidth > 1024) ||
+        (prevWidth > 1024 && currentWidth <= 1024)
+      ) {
+        setIsMobile(newIsMobile)
+        refreshPage()
+      }
     }
 
     checkisMobile()
+    console.log(isMobile)
 
     window.addEventListener('resize', checkisMobile)
 
@@ -44,6 +57,10 @@ export default function Home() {
       window.removeEventListener('resize', checkisMobile)
     }
   }, [])
+
+  const refreshPage = () => {
+    window.location.reload()
+  }
 
   const handlerOpenMobileApp = (app: Application) => {
     setOpenApps([])

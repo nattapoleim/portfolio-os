@@ -12,14 +12,18 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   const isHome = pathname === '/'
   const [isLoading, setIsLoading] = useState(isHome)
   const [isMobile, setIsMobile] = useState(false)
-  const currentH = window.innerHeight - 40
-
-  const checkScreenSize = () => {
-    setIsMobile(window.innerWidth <= 1024)
-    console.log('check')
-  }
+  const [currentH, setCurrentH] = useState(0)
 
   useEffect(() => {
+    const updateHeight = () => {
+      setCurrentH(window.innerHeight - 40)
+    }
+
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+
+    updateHeight()
     checkScreenSize()
   }, [])
 
@@ -29,7 +33,11 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <div
-      className={`w-screen h-[${currentH}px] max-h-[${currentH}]`}
+      style={{
+        height: `${currentH}px`,
+        maxHeight: `${currentH}px`,
+      }}
+      className={`w-screen`}
     >
       {isLoading && isHome ? (
         <InitLoading finishLoading={finishLoading} isMobile={isMobile} />

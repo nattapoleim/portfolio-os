@@ -48,7 +48,7 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
           animate={isLoading === false && { opacity: 1 }}
         >
           {children}
-          {isMobile && <Taskbar />}
+          <Taskbar />
         </motion.div>
       )}
     </div>

@@ -141,7 +141,7 @@ export default function Home() {
         </AnimatePresence>
       )}
 
-      <div className="text-6xl opacity-30 font-extrabold absolute z-0 top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
+      <div className="text-6xl max-h-full opacity-30 font-extrabold absolute z-0 top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
         <span>Hello .</span>
       </div>
     </main>

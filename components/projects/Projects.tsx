@@ -56,13 +56,13 @@ const variants: Variants = {
 
 const Projects = () => {
   return (
-    <section className="flex items-center justify-center gap-5 flex-col">
+    <section className="flex my-10 items-center justify-center gap-10 flex-col">
       <motion.h2
         variants={variants}
         initial="initial"
         animate="animate"
         transition={{ delay: 0.3 }}
-        className="text-4xl font-semibold uppercase text-primary-green mt-4 lg:mt-0"
+        className="text-5xl font-semibold uppercase text-primary-green"
       >
         Projects
       </motion.h2>

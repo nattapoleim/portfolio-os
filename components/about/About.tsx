@@ -7,7 +7,7 @@ import React from 'react'
 const variants: Variants = {
   initial: {
     opacity: 0,
-    y: -30,
+    y: 100,
   },
   animate: {
     opacity: 1,
@@ -83,11 +83,12 @@ const About = () => {
         transition={{
           delay: 0.8,
         }}
-        className="pl-6 pr-3 py-2 w-40 rounded-lg border text-primary-green hover:text-primary-navy font-bold flex items-center justify-center gap-2 hover:bg-primary-green duration-300 mt-5"
+        className="pl-6 pr-3 py-4 rounded-lg border text-primary-green hover:text-primary-navy font-bold flex items-center justify-center gap-2 hover:bg-primary-green duration-300 mt-5"
         href="/Resume.pdf"
         download
       >
-        Resume <ArrowDown className="inline-block animate-bounce w-5 h-5" strokeWidth={2} />
+        Download Resume
+        <ArrowDown className="inline-block animate-bounce w-5 h-5" strokeWidth={2} />
       </motion.a>
     </section>
   )

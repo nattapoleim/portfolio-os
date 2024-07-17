@@ -68,7 +68,7 @@ const variants: Variants = {
 
 const Contact = () => {
   return (
-    <section className="flex px-4 items-center flex-col mb-10 gap-10 mt-10">
+    <section className="flex px-4 items-center flex-col my-10 gap-10">
       <motion.h2
         variants={variants}
         initial="initial"

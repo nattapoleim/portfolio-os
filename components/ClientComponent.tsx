@@ -27,17 +27,23 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
   }
 
   return (
-    <div className={`h-screen max-h-screen w-screen`}>
+    <div
+      style={{
+        height: `calc(100vh - 2.5rem)`,
+        maxHeight: `calc(100vh - 2.5rem)`,
+      }}
+      className="w-screen"
+    >
       {isLoading && isHome ? (
         <InitLoading finishLoading={finishLoading} isMobile={isMobile} />
       ) : (
         <motion.div
-          className="h-screen"
+          className="h-full"
           initial={{ opacity: 0 }}
           animate={isLoading === false && { opacity: 1 }}
         >
           {children}
-          <Taskbar />
+          {isMobile && <Taskbar />}
         </motion.div>
       )}
     </div>

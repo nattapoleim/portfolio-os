@@ -29,11 +29,7 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <div
-      style={{
-        height: `${currentH}px`,
-        maxHeight: `${currentH}px`,
-      }}
-      className="w-screen"
+      className={`w-screen h-[${currentH}px] max-h-[${currentH}]`}
     >
       {isLoading && isHome ? (
         <InitLoading finishLoading={finishLoading} isMobile={isMobile} />

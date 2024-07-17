@@ -2,7 +2,19 @@ import { motion, Variants } from 'framer-motion'
 import { BookUser, Facebook, Github, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
 import React from 'react'
 
-const socialList = [
+interface SocialListType {
+  icon: React.ReactNode
+  path: string
+}
+
+interface ContactListType {
+  icon: React.ReactNode
+  text: string
+  path?: string
+  role?: string
+}
+
+const socialList: SocialListType[] = [
   {
     icon: <Facebook size={40} className="group-hover:text-primary-green duration-300" />,
     path: 'https://www.facebook.com/vaanies/',
@@ -21,7 +33,7 @@ const socialList = [
   },
 ]
 
-const contactList = [
+const contactList: ContactListType[] = [
   {
     icon: <Mail size={40} className="group-hover:text-primary-green duration-300" />,
     text: 'nattapol.eim@gmail.com',
@@ -69,7 +81,7 @@ const Contact = () => {
             initial="initial"
             animate="animate"
             transition={{ delay: 0.4 + 0.1 * index }}
-            className="border group hover:border-primary-green w-full border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4"
+            className="border group hover:border-primary-green w-full border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4 hover:shadow-md hover:shadow-primary-green"
           >
             {link.icon}
             {link.role === 'email' ? (
@@ -95,7 +107,7 @@ const Contact = () => {
               transition={{ delay: 0.7 + 0.1 * index }}
               href={link.path}
               target="_blank"
-              className="border group hover:border-primary-green border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4"
+              className="border group hover:border-primary-green border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4 hover:shadow-md hover:shadow-primary-green"
             >
               {link.icon}
             </motion.a>

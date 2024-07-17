@@ -1,18 +1,20 @@
 'use client'
 
+import { Application, OpenApplication } from '@/types/application'
+import { AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+
+// components
 import About from '@/components/about/About'
 import App from '@/components/application/App'
 import AppWindow from '@/components/appWindow/AppWindow'
 import Clock from '@/components/clock/Clock'
 import Contact from '@/components/contact/Contact'
-import { Application, OpenApplication } from '@/types/application'
-import { AnimatePresence } from 'framer-motion'
-import { Contact2 } from 'lucide-react'
-import { useState } from 'react'
+import Projects from '@/components/projects/Projects'
 
 const applications: Application[] = [
   { title: 'About', component: <About /> },
-  { title: 'Projects' },
+  { title: 'Projects', component: <Projects /> },
   { title: `Contact`, component: <Contact /> },
 ]
 
@@ -80,7 +82,7 @@ export default function Home() {
         ^^a
       </div>
 
-      {/* CLOCK */}
+      {/* Desktop */}
       <div className="absolute right-10 flex flex-col items-end gap-2 font-semibold">
         <Clock className="text-5xl animate-pulse font-bold" />
         <p>Nattapol Eiamsa-ard</p>

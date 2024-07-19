@@ -1,7 +1,6 @@
 'use client'
 
 import InitLoading from '@/components/initLoading/InitLoading'
-
 import Taskbar from '@/components/taskbar/Taskbar'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
@@ -40,7 +39,7 @@ const ClientComponent: FC<{ children: ReactNode }> = ({ children }) => {
       className={`w-screen`}
     >
       {isLoading && isHome ? (
-        <InitLoading finishLoading={finishLoading} isMobile={isMobile} />
+        <InitLoading currentH={currentH} finishLoading={finishLoading} isMobile={isMobile} />
       ) : (
         <motion.div
           className="h-full"

@@ -6,9 +6,10 @@ import { FC } from 'react'
 interface TInitLoading {
   finishLoading: () => void
   isMobile: boolean
+  currentH: number
 }
 
-const InitLoading: FC<TInitLoading> = ({ finishLoading, isMobile }) => {
+const InitLoading: FC<TInitLoading> = ({ currentH, finishLoading, isMobile }) => {
   setTimeout(() => {
     finishLoading()
   }, 5500)
@@ -17,7 +18,8 @@ const InitLoading: FC<TInitLoading> = ({ finishLoading, isMobile }) => {
     <motion.div
       animate={{ opacity: [1, 0], display: ['flex', 'none'] }}
       transition={{ delay: 5.4, duration: 0.5 }}
-      className="h-screen w-screen flex-col flex items-center justify-center"
+      style={{ height: `${currentH}px` }}
+      className="w-screen flex-col flex items-center justify-center"
     >
       {/* LOADING PROGRESS BAR */}
       {isMobile ? (

@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion'
+import BlurFade from '@/components/magicui/blur-fade'
 import { BookUser, Facebook, Github, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
 import React from 'react'
 
@@ -55,70 +55,45 @@ const contactList: ContactListType[] = [
   },
 ]
 
-const variants: Variants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-}
-
 const Contact = () => {
   return (
     <section className="flex px-4 items-center flex-col my-10 gap-10">
-      <motion.h2
-        variants={variants}
-        initial="initial"
-        animate="animate"
-        transition={{ delay: 0.3 }}
-        className="text-5xl font-semibold uppercase text-primary-green"
-      >
-        Contact
-      </motion.h2>
+      <BlurFade delay={0.25} inView>
+        <h2 className="text-5xl font-semibold uppercase text-primary-green">Contact</h2>
+      </BlurFade>
       <div className="flex flex-col items-start gap-6 lg:gap-4">
         {contactList.map((link, index) => (
-          <motion.div
-            key={index}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            transition={{ delay: 0.4 + 0.1 * index }}
-            className="border group hover:border-primary-green w-full border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4 hover:shadow-md hover:shadow-primary-green"
-          >
-            {link.icon}
-            {link.role === 'email' ? (
-              <a
-                href={link.path}
-                className="hover:underline group-hover:text-primary-green duration-300"
-              >
-                {link.text}
-              </a>
-            ) : (
-              <p className="group-hover:text-primary-green duration-300">{link.text}</p>
-            )}
-          </motion.div>
+          <BlurFade key={index} delay={0.4 + index * 0.15} inView className="w-full">
+            <div className="border group hover:border-primary-green w-full border-primary-lightestslate rounded-md p-4 flex justify-start items-center duration-300 gap-4 hover:shadow-md hover:shadow-primary-green">
+              {link.icon}
+              {link.role === 'email' ? (
+                <a
+                  href={link.path}
+                  className="hover:underline group-hover:text-primary-green duration-300"
+                >
+                  {link.text}
+                </a>
+              ) : (
+                <p className="group-hover:text-primary-green duration-300">{link.text}</p>
+              )}
+            </div>
+          </BlurFade>
         ))}
 
-        <motion.div className="grid grid-cols-2 lg:flex items-center justify-between w-full gap-4">
+        <div className="grid grid-cols-2 lg:flex items-center justify-between w-full gap-4">
           {socialList.map((link, index) => (
-            <motion.a
-              key={index}
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              transition={{ delay: 0.7 + 0.1 * index }}
-              href={link.path}
-              target="_blank"
-              className="border group hover:border-primary-green border-primary-lightestslate rounded-md p-4 w-full lg:w-fit flex justify-start gap-4 items-center duration-300 hover:shadow-md hover:shadow-primary-green"
-            >
-              {link.icon}
-              <p className="block lg:hidden">{link.title}</p>
-            </motion.a>
+            <BlurFade key={index} delay={1 + index * 0.15} inView>
+              <a
+                href={link.path}
+                target="_blank"
+                className="border group hover:border-primary-green border-primary-lightestslate rounded-md p-4 w-full lg:w-fit flex justify-start gap-4 items-center duration-300 hover:shadow-md hover:shadow-primary-green"
+              >
+                {link.icon}
+                <p className="block lg:hidden">{link.title}</p>
+              </a>
+            </BlurFade>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

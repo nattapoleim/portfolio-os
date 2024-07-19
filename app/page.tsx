@@ -12,6 +12,8 @@ import AppWindow from '@/components/appWindow/AppWindow'
 import MobileAppWindow from '@/components/appWindow/MobileAppWindow'
 import Clock from '@/components/clock/Clock'
 import Contact from '@/components/contact/Contact'
+import BoxReveal from '@/components/magicui/box-reveal'
+import WordRotate from '@/components/magicui/word-rotate'
 import Projects from '@/components/projects/Projects'
 import { BookUser, FolderOpenDot, User } from 'lucide-react'
 
@@ -49,7 +51,6 @@ export default function Home() {
     }
 
     checkisMobile()
-    console.log(isMobile)
 
     window.addEventListener('resize', checkisMobile)
 
@@ -103,36 +104,49 @@ export default function Home() {
   return (
     <main className="bg-primary-navy w-full h-full p-4 flex flex-col lg:flex-row relative">
       <div className="lg:absolute lg:right-10 flex flex-col items-center lg:items-end gap-2 font-semibold">
-        <Clock className="text-8xl lg:text-5xl animate-pulse font-bold" />
-        <p>Nattapol Eiamsa-ard</p>
-        <p>{'<Vaan/>'}</p>
+        <BoxReveal boxColor="#64ffda" duration={0.5}>
+          <Clock className="text-8xl lg:text-5xl animate-pulse font-bold" />
+        </BoxReveal>
+        <BoxReveal boxColor="#64ffda" duration={0.6}>
+          <p>Nattapol Eiamsa-ard</p>
+        </BoxReveal>
+        <BoxReveal boxColor="#64ffda" duration={0.7}>
+          <p>{'<Vaan/>'}</p>
+        </BoxReveal>
       </div>
 
       {!isMobile && <div onClick={() => setSelectedApp('')} className="absolute inset-0" />}
 
-      <div className="flex flex-col lg:mt-0 lg:mb-0 mt-auto mb-14 items-center gap-10">
+      <div className="flex flex-col lg:mt-0 lg:mb-0 mt-auto mb-14 items-center gap-10 z-10">
         {isMobile ? (
           <>
             {applications.map((app, index) => (
-              <MobileApp
+              <BoxReveal
                 key={app.title}
-                title={app.title}
-                icon={app.icon}
-                onClick={() => handlerOpenMobileApp(app)}
-                index={index}
-              />
+                boxColor="#64ffda"
+                duration={0.5 + 0.1 * index}
+                width="100%"
+              >
+                <MobileApp
+                  title={app.title}
+                  icon={app.icon}
+                  onClick={() => handlerOpenMobileApp(app)}
+                  index={index}
+                />
+              </BoxReveal>
             ))}
           </>
         ) : (
           <>
-            {applications.map(app => (
-              <App
-                key={app.title}
-                title={app.title}
-                select={selectedApp}
-                onClick={() => setSelectedApp(app.title)}
-                onDoubleClick={() => handlerOpenApp(app)}
-              />
+            {applications.map((app, index) => (
+              <BoxReveal key={app.title} boxColor="#64ffda" duration={0.5 + 0.1 * index}>
+                <App
+                  title={app.title}
+                  select={selectedApp}
+                  onClick={() => setSelectedApp(app.title)}
+                  onDoubleClick={() => handlerOpenApp(app)}
+                />
+              </BoxReveal>
             ))}
           </>
         )}
@@ -158,8 +172,10 @@ export default function Home() {
         </AnimatePresence>
       )}
 
-      <div className="text-6xl max-h-full opacity-30 font-extrabold absolute z-0 top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
-        <span>Hello .</span>
+      <div className="text-6xl opacity-30 font-extrabold absolute z-[0] top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
+        <BoxReveal boxColor="#64ffda" duration={0.5}>
+          <WordRotate words={['Hello .', 'Welcome', 'to', 'My', 'Portfolio .']} />
+        </BoxReveal>
       </div>
     </main>
   )

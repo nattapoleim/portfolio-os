@@ -1,6 +1,7 @@
 'use client'
 
 import InitLoading from '@/components/initLoading/InitLoading'
+import NewLoading from '@/components/initLoading/NewLoading'
 import Taskbar from '@/components/taskbar/Taskbar'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'

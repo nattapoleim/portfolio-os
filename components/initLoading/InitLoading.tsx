@@ -30,8 +30,10 @@ const InitLoading: FC<TInitLoading> = ({ currentH, finishLoading, isMobile }) =>
             transition={{ delay: 2.05, duration: 0.5 }}
             className="absolute inset-0 w-full h-full flex items-center justify-center flex-col"
           >
-            <div className="mb-2 animate-pulse text-2xl">Loading...</div>
-            <div className="w-3/5 md:w-2/5 border-2 border-primary-green h-8 rounded-md overflow-hidden">
+            <div className="w-3/5 md:w-2/5 border-2 border-primary-green h-32 rounded-md overflow-hidden">
+              <div className="animate-pulse text-3xl font-semibold absolute inset-0 flex items-center justify-center text-primary-green z-20">
+                Loading
+              </div>
               <motion.div
                 initial={{ width: 0 }}
                 animate={{
@@ -40,6 +42,9 @@ const InitLoading: FC<TInitLoading> = ({ currentH, finishLoading, isMobile }) =>
                 transition={{ duration: 2, ease: 'easeInOut' }}
                 className="w-10 h-full bg-primary-green"
               />
+              <div className="animate-pulse text-3xl font-semibold absolute inset-0 flex items-center justify-center text-primary-navy">
+                Loading
+              </div>
             </div>
           </motion.div>
 
@@ -65,16 +70,22 @@ const InitLoading: FC<TInitLoading> = ({ currentH, finishLoading, isMobile }) =>
             transition={{ delay: 2.05, duration: 0.5 }}
             className="w-full h-full flex items-center mt-20 justify-center flex-col"
           >
-            <div className="mb-2 animate-pulse text-2xl">Loading...</div>
-            <div className="w-3/5 md:w-2/5 border-2 border-primary-green h-8 rounded-md overflow-hidden">
+            <div className="w-3/5 md:w-2/5 border-2 border-primary-green h-32 relative rounded-md overflow-hidden">
+              <div className="animate-pulse text-3xl font-semibold absolute inset-0 flex items-center justify-center text-primary-green z-20">
+                Loading
+              </div>
+
               <motion.div
                 initial={{ width: 0 }}
                 animate={{
                   width: '100%',
                 }}
                 transition={{ duration: 2, ease: 'easeInOut' }}
-                className="w-10 h-full bg-primary-green"
+                className="w-10 h-full bg-primary-green z-10"
               />
+              <div className="animate-pulse text-3xl font-semibold absolute inset-0 flex items-center justify-center text-primary-navy">
+                Loading
+              </div>
             </div>
           </motion.div>
 

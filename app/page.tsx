@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 
 // components
 import About from '@/components/about/About'
+import Dot from '@/components/animata/background/dot'
 import App from '@/components/application/App'
 import MobileApp from '@/components/application/MobileApp'
 import AppWindow from '@/components/appWindow/AppWindow'
@@ -32,9 +33,14 @@ export default function Home() {
   const [maxZIndex, setMaxZIndex] = useState(100)
   const [isMobile, setIsMobile] = useState(false)
   const [mobileAppOpen, setMobileAppOpen] = useState(false)
+  const [currentH, setCurrentH] = useState(0)
   const prevWidthRef = useRef(typeof window !== 'undefined' ? window.innerWidth : 0)
 
   useEffect(() => {
+    const updateHeight = () => {
+      setCurrentH(window.innerHeight - 40)
+    }
+
     const checkisMobile = () => {
       const currentWidth = window.innerWidth
       const prevWidth = prevWidthRef.current
@@ -50,6 +56,7 @@ export default function Home() {
       }
     }
 
+    updateHeight()
     checkisMobile()
 
     window.addEventListener('resize', checkisMobile)
@@ -102,7 +109,13 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-primary-navy w-full h-full p-4 flex flex-col lg:flex-row relative">
+    <main
+      style={{
+        height: `${currentH}px`,
+        maxHeight: `${currentH}px`,
+      }}
+      className="bg-primary-navy w-full p-4 flex flex-col lg:flex-row relative"
+    >
       <div className="lg:absolute lg:right-10 flex flex-col items-center lg:items-end gap-2 font-semibold">
         <BoxReveal boxColor="#64ffda" duration={0.5}>
           <Clock className="text-8xl lg:text-5xl animate-pulse font-bold" />
@@ -172,7 +185,7 @@ export default function Home() {
         </AnimatePresence>
       )}
 
-      <div className="text-6xl opacity-30 font-extrabold absolute z-[0] top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
+      <div className="text-6xl font-extrabold opacity-80 absolute z-[0] top-0 bottom-0 right-0 left-0 flex items-center mb-36 lg:mb-0 justify-center">
         <BoxReveal boxColor="#64ffda" duration={0.5}>
           <WordRotate words={['Hello .', 'Welcome', 'to', 'My', 'Portfolio .']} />
         </BoxReveal>
